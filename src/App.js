@@ -70,7 +70,9 @@ class App extends Component {
             .includes(this.state.searchTerm.toLowerCase()) ||
           u.location.country
             .toLowerCase()
-            .includes(this.state.searchTerm.toLowerCase())
+            .includes(this.state.searchTerm.toLowerCase()) ||
+          u.location.street.number.toString().includes(this.state.searchTerm) ||
+          u.location.postcode.toString().includes(this.state.searchTerm)
       );
 
     const userNames = filteredUsers.map((u) => {
