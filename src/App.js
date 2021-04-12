@@ -16,11 +16,10 @@ class App extends Component {
     axios
       .get("https://randomuser.me/api/?results=60")
       .then((response) => {
-        console.log(response.data.results);
         this.setState({ users: response.data.results });
       })
       .catch((error) => {
-        console.log(error);
+        return "Something went wrong";
       });
   }
 
@@ -38,7 +37,6 @@ class App extends Component {
     let sortedUsers;
 
     if (this.state.alphabetical === "az") {
-      console.log("sort");
       sortedUsers = this.state.users.sort((a, b) =>
         a.name.first > b.name.first ? 1 : -1
       );
