@@ -8,8 +8,6 @@ class App extends Component {
     super(props);
 
     this.state = { users: [], searchTerm: "", alphabetical: "az" };
-
-    this.handleChange = this.handleChange.bind(this);
   }
 
   componentDidMount() {
@@ -23,7 +21,7 @@ class App extends Component {
       });
   }
 
-  handleChange(event) {
+  handleChange = (event) => {
     const target = event.target;
     const value = target.type === "checkbox" ? target.checked : target.value;
     const name = target.name;
@@ -31,7 +29,7 @@ class App extends Component {
     this.setState({
       [name]: value,
     });
-  }
+  };
 
   render() {
     let sortedUsers;
@@ -69,6 +67,8 @@ class App extends Component {
           u.location.country
             .toLowerCase()
             .includes(this.state.searchTerm.toLowerCase()) ||
+          u.email.toLowerCase().includes(this.state.searchTerm.toLowerCase()) ||
+          u.dob.age.toString().includes(this.state.searchTerm) ||
           u.location.street.number.toString().includes(this.state.searchTerm) ||
           u.location.postcode.toString().includes(this.state.searchTerm)
       );
