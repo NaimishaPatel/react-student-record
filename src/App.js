@@ -6,7 +6,6 @@ import "./App.css";
 class App extends Component {
   constructor(props) {
     super(props);
-
     this.state = { users: [], searchTerm: "", alphabetical: "az" };
   }
 
@@ -140,5 +139,4 @@ class App extends Component {
     );
   }
 }
-
 export default App;
